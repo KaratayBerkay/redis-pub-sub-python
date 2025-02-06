@@ -1,0 +1,84 @@
+services:
+  redis:
+    image: redis:latest
+    container_name: redis-server
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - BroadCast
+
+  publisher:
+    build:
+      context: .
+      dockerfile: publishers/Dockerfile
+    container_name: redis-publisher
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    networks:
+      - BroadCast
+
+  subscriber1:
+    build:
+      context: .
+      dockerfile: subscribers/Dockerfile
+    container_name: redis-subscriber1
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    networks:
+      - BroadCast
+
+  subscriber2:
+    build:
+      context: .
+      dockerfile: subscribers/Dockerfile
+    container_name: redis-subscriber2
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    networks:
+      - BroadCast
+
+  subscriber3:
+    build:
+      context: .
+      dockerfile: subscribers/Dockerfile
+    container_name: redis-subscriber3
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    networks:
+      - BroadCast
+
+  subscriber4:
+    build:
+      context: .
+      dockerfile: subscribers/Dockerfile
+    container_name: redis-subscriber4
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    networks:
+      - BroadCast
+
+  subscriber5:
+    build:
+      context: .
+      dockerfile: subscribers/Dockerfile
+    container_name: redis-subscriber5
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    networks:
+      - BroadCast
+
+networks:
+  BroadCast:
