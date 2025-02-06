@@ -262,3 +262,6 @@ Output: redis-subscriber2
 2025-02-06 18:16:18   'pattern': None,
 2025-02-06 18:16:18   'type': 'message'}
 ```
+
+## Memory Usage
+![Total Memory Usage](Screenshot%20from%202025-02-06%2018-58-51.png)

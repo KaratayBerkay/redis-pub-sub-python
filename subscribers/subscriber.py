@@ -15,9 +15,11 @@ r = redis.Redis(host='redis', port=6379, decode_responses=True)
 p = r.pubsub()
 p.subscribe(**{channel_name: message_handler})
 
-print(f"Subscribed to {channel_name}...")  # Debugging line
 
-for message in p.listen():  # Listen for new messages
-    print(f"Subscribed ID: {name}-{client_UUID}\n")  # Debugging line
-    print(f"Message Received : \n")
-    
+while True:
+    print(f"Subscribed to {channel_name}...")  # Debugging line
+    print(f"Subscriber: {name}, UUID: {client_UUID} is up and running...")
+    for message in p.listen():  # Listen for new messages
+        # print(f"Message Received: {message}")  # Debugging line
+        pass
+

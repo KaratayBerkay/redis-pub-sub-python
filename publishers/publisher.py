@@ -12,8 +12,8 @@ client_UUID = str(uuid.uuid4())
 
 r = redis.Redis(host='redis', port=6379, decode_responses=True)
 
-while True:
-    message = f"Test Message {time.time()}"
+def prepare_message_and_payload(message: str, name: str, client_UUID: str):
+    message = f"{message} : {time.time()}"
     payload = dict(
         uu_id=str(uuid.uuid4()), 
         data=message,
@@ -21,8 +21,17 @@ while True:
         timestamp=time.time(),
         date=datetime.datetime.now().isoformat()
     )
-    print(f"Publisher: {name}-{client_UUID}")
-    print(f"Message Published : \n")
+    return message, payload
+
+
+while True:
+    print(f"Publisher: {name}-{client_UUID} is up and running...")
+    message, payload = prepare_message_and_payload(
+        message="Prepare Test Message From Publisher", 
+        name=name, 
+        client_UUID=client_UUID
+    )
+    print(f"Publisher UUID: {client_UUID}: \n")
     pprint.pprint(payload, indent=2)
-    r.publish(channel_name, json.dumps({"name": f"{name}-{client_UUID}", "data": payload}))
+    r.publish(channel_name, json.dumps({"NAME": f"{name}", "UUID": f"{client_UUID}", "DATA": payload}))
     time.sleep(5)
