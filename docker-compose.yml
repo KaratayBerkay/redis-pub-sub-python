@@ -6,8 +6,9 @@ services:
     networks:
       - BroadCast
     # port is not needed as we are using the network BroadCast
-    # ports:
-    #   - "6379:6379"
+    # but to use broadcast we need to expose the port to read from Redis Insight
+    ports:
+      - "6379:6379"
 
   publisher:
     build:
