@@ -264,4 +264,5 @@ Output: redis-subscriber2
 ```
 
 ## Memory Usage
-![Total Memory Usage](Screenshot%20from%202025-02-06%2018-58-51.png)
+
+![Total Memory Usage](docker-desktop-image.png)
