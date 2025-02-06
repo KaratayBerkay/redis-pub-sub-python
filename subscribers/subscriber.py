@@ -20,6 +20,4 @@ while True:
     print(f"Subscribed to {channel_name}...")  # Debugging line
     print(f"Subscriber: {name}, UUID: {client_UUID} is up and running...")
     for message in p.listen():  # Listen for new messages
-        # print(f"Message Received: {message}")  # Debugging line
-        pass
-
+        print(f"Subcribe Object", str(p))
