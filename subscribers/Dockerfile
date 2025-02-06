@@ -16,6 +16,5 @@ COPY /requirements.txt  /app/requirements.txt
 RUN pip install pip --upgrade
 RUN pip install -r /app/requirements.txt --no-cache-dir
 
-
 # Set the default command
 CMD ["python", "/app/subscriber.py"]
