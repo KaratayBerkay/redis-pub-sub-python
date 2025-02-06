@@ -3,6 +3,7 @@ import time
 import uuid
 import json
 import datetime
+import pprint
 
 
 channel_name = "broker"
@@ -20,6 +21,8 @@ while True:
         timestamp=time.time(),
         date=datetime.datetime.now().isoformat()
     )
-    print(f"Publisher: {name}-{client_UUID} Sending: {payload}")
+    print(f"Publisher: {name}-{client_UUID}")
+    print(f"Message Published : \n")
+    pprint.pprint(payload, indent=2)
     r.publish(channel_name, json.dumps({"name": f"{name}-{client_UUID}", "data": payload}))
     time.sleep(5)
