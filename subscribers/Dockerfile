@@ -10,10 +10,12 @@ WORKDIR /app
 
 # Copy your application code into the container
 COPY /subscribers/subscriber.py /app/subscriber.py
+COPY /requirements.txt  /app/requirements.txt
 
 # Install any necessary dependencies
 RUN pip install pip --upgrade
-RUN pip install redis
+RUN pip install -r /app/requirements.txt --no-cache-dir
+
 
 # Set the default command
 CMD ["python", "/app/subscriber.py"]
