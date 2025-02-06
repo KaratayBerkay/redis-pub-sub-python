@@ -20,6 +20,6 @@ while True:
         timestamp=time.time(),
         date=datetime.datetime.now().isoformat()
     )
-    print(f"Publiher: {name}-{client_UUID} Sending: {payload}")
+    print(f"Publisher: {name}-{client_UUID} Sending: {payload}")
     r.publish(channel_name, json.dumps({"name": f"{name}-{client_UUID}", "data": payload}))
     time.sleep(5)

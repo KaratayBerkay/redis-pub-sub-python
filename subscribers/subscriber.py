@@ -16,4 +16,5 @@ p.subscribe(**{channel_name: message_handler})
 print(f"Subscribed to {channel_name}...")  # Debugging line
 
 for message in p.listen():  # Listen for new messages
+    print(f"Subscribed ID: {name}-{client_UUID}\n")  # Debugging line
     print(f"Message Read From: {name}-{client_UUID} Received: {message}")  # Debugging line
