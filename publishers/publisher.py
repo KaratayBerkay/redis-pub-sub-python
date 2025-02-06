@@ -31,7 +31,6 @@ while True:
         name=name, 
         client_UUID=client_UUID
     )
-    print(f"Publisher UUID: {client_UUID}: \n")
     pprint.pprint(payload, indent=2)
     r.publish(channel_name, json.dumps({"NAME": f"{name}", "UUID": f"{client_UUID}", "DATA": payload}))
     time.sleep(5)

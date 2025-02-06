@@ -18,6 +18,6 @@ p.subscribe(**{channel_name: message_handler})
 
 while True:
     print(f"Subscribed to {channel_name}...")  # Debugging line
-    print(f"Subscriber: {name}, UUID: {client_UUID} is up and running...")
     for message in p.listen():  # Listen for new messages
-        print(f"Subcribe Object", str(p))
+        print(f"Message Received:\n {str(p)}")
+        print(f"Subscriber: {name}, UUID: {client_UUID} is up and running...")
