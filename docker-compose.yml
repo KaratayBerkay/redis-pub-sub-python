@@ -3,10 +3,11 @@ services:
     image: redis:latest
     container_name: redis-server
     restart: always
-    ports:
-      - "6379:6379"
     networks:
       - BroadCast
+    # port is not needed as we are using the network BroadCast
+    # ports:
+    #   - "6379:6379"
 
   publisher:
     build:
